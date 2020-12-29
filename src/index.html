@@ -4,34 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <p>Placeholder for settings</p>
-    </header>
-    
-    <main>
-        <p>Weather: Temperature here for locale area</p>
-        <div>
-            <h1>Greetings from Garachu</h1>
-            <h3>What are you grateful for today?</h3>
-        </div>
+    <div id="overlay">
+        <div class='grid-container'>
+            
+            <div class="settings-container">
+                <p>Placeholder for settings</p>
+            </div>
 
-        <form class="grateful" autocomplete="off">
-            <input type="text" name="grateful" id="grateful">
-            <button type="submit">+ Add Item</button>
-        </form>
-        
-        <ul class="grateful-list"></ul>
-        
-        <div class="quotes">
-            <p>Inspiring Quote here - By inspiring person</p>
-        </div>
+            <div class='weather-container'>
+                <p>Weather: Temperature here for locale area</p>
+            </div>
 
-    </main>
+            <div class=grateful-container>
+                <h1>Greetings from Garachu</h1>
+                <h3>What are you grateful for today?</h3>
+                
+                <form class="grateful" autocomplete="off">
+                    <input type="text" name="grateful" id="grateful-input">
+                    <button type="submit">I'M GRATEFUL</button>
+                </form>
+                
+                <ul class="grateful-list"></ul>
+                
+            </div>  
+            
+            <div class="quotes">
+                <p class="quote"></p>
+            </div>
+            
+        </div>
+    </div>
     
     <!-- <script src='background.js'></script> -->
-    <script src='garachu.js'></script>
+    <script src='js/garachu.js'></script>
+    <script src='js/quotes.js'></script>
+    <script src='js/weather.js'></script>
+            
 </body>
 </html>

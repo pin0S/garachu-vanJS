@@ -27,7 +27,7 @@ function handleSubmit(e) {
 function displayGratefuls(e) {
     //check to see if less than 3 current gratefuls
     if (currentGratefuls.length < 4) {
-        let html = gratefuls.map(
+        let html = currentGratefuls.map(
             item => `<li class="grateful-item">
             <span class="itemName">${item.grateful}</span>
             </li>`

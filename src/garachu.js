@@ -21,7 +21,12 @@ function handleSubmit(e) {
     // Clear the form
     e.target.reset();
     // fire off a custom event that will tell anyone else who cares that the items have been updated!
-    
+    displayGratefuls(e)
+}
+
+function displayGratefuls(e) {
+    console.log(e)
+
 }
 
 gratefulForm.addEventListener('submit', handleSubmit);

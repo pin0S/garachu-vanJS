@@ -1,7 +1,7 @@
 const gratefulForm = document.querySelector('.grateful');
 const gratefulList = document.querySelector('.grateful-list');
 
-let gratefuls = []
+let currentGratefuls = []
 
 function handleSubmit(e) {
     e.preventDefault();
@@ -16,8 +16,8 @@ function handleSubmit(e) {
         complete: false,
     };
     // Push the items into our state
-    gratefuls.push(item);
-    console.log(`There are now ${gratefuls.length} in your state`);
+    currentGratefuls.push(item);
+    
     // Clear the form
     e.target.reset();
     // fire off a custom event that will tell anyone else who cares that the items have been updated!
@@ -25,8 +25,19 @@ function handleSubmit(e) {
 }
 
 function displayGratefuls(e) {
-    console.log(e)
+    //check to see if less than 3 current gratefuls
+    if (currentGratefuls.length < 4) {
+        let html = gratefuls.map(
+            item => `<li class="grateful-item">
+            <span class="itemName">${item.grateful}</span>
+            </li>`
+        )
+        .join(''); 
 
+        gratefulList.innerHTML = html
+    } else {
+        alert("Save some gratefulness for tomorrow 😀")
+    }    
 }
 
 gratefulForm.addEventListener('submit', handleSubmit);

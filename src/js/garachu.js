@@ -7,7 +7,7 @@ function handleSubmit(e) {
     e.preventDefault();
     console.log('submitted!');
     const grateful = e.currentTarget.grateful.value;
-
+    
     if (!grateful) return;
 
     const item = {

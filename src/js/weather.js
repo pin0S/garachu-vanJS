@@ -1,19 +1,23 @@
-const API_KEY = 'd6af210cd28f70482023562b6d717c59'
-const WEATHER_API = 'api.openweathermap.org/data/2.5/weather?'
+// old keys for open weather API
+//const API_KEY = 'b1331f0e98b8183090e37fa33c9990fd' 
+//const WEATHER_API = 'api.openweathermap.org/data/2.5/weather?'
 
-const weather = document.querySelector('.weather')
+const weather = document.querySelector('.weather-container')
 
 function getWeather(coords) {
 
     fetch(
-    `${WEATHER_API}lat=${coords.lat}&lon=${
-        coords.lon}&appid=${API_KEY}&units=metric`
+    `https://fcc-weather-api.glitch.me/api/current?lat=${coords.lat}&lon=${coords.lon}`
     )
     .then(response => response.json())
-    .then(json => {
-        const name = json.name;
-        const temperature = json.main.temp;
+    .then(data => {
+        console.log(data)
+        const name = data.name;
+        const temperature = data.main.temp;
         weather.innerHTML = `<p>${Math.floor(temperature)}° @ ${name}</p>`;
+    })
+    .catch( rejected => {
+        console.log(rejected);
     });
 }
 
@@ -29,15 +33,11 @@ function showLocation(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const coords = {
-      lat,
-      lon
+        lat,
+        lon
     };
     localStorage.setItem("coords", JSON.stringify(coords));
     getWeather(coords);
 }
 
 getLocation()
-
-
-
-

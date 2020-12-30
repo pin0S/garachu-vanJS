@@ -1,27 +1,37 @@
 const gratefulForm = document.querySelector('.grateful');
 const gratefulList = document.querySelector('.grateful-list');
 
-let currentGratefuls = []
+const currentGratefuls = []
+const historicGratefuls = []
 
 function handleSubmit(e) {
     e.preventDefault();
     console.log('submitted!');
     const grateful = e.currentTarget.grateful.value;
     
+    //if it is empty don't submit it
     if (!grateful) return;
+
+    var d = new Date();
 
     const item = {
         grateful,
         id: Date.now(),
-        complete: false,
+        month: d.getMonth(),
+        year: d.getFullYear()
+
     };
     // Push the items into our state
-    currentGratefuls.push(item);
-    
+    if (currentGratefuls.length < 3) {
+        currentGratefuls.push(item);
+        historicGratefuls.push(item);
+    } else {
+        alert("Save some gratefulness for tomorrow 😀")
+    }    
     // Clear the form
     e.target.reset();
-    // fire off a custom event that will tell anyone else who cares that the items have been updated!
-    displayGratefuls(e)
+    // fire off a custom event that the currentGratefuls have been updated!
+    gratefulList.dispatchEvent(new CustomEvent('currentGratefulsUpdated'));
 }
 
 function displayGratefuls(e) {
@@ -29,7 +39,7 @@ function displayGratefuls(e) {
     if (currentGratefuls.length < 4) {
         let html = currentGratefuls.map(
             item => `<li class="grateful-item">
-            <span class="itemName">${item.grateful}</span>
+            <span class="itemName">I am grateful for ${item.grateful} 🙏</span>
             </li>`
         )
         .join(''); 
@@ -40,4 +50,29 @@ function displayGratefuls(e) {
     }    
 }
 
+function mirrorToLocalStorage() {
+    localStorage.setItem('currentGratefuls', JSON.stringify(currentGratefuls));
+    localStorage.setItem('historicGratefuls', JSON.stringify(historicGratefuls));
+}
+
+function restoreGratefuls() {
+
+    const lsGratefuls = JSON.parse(localStorage.getItem('currentGratefuls'));
+    const hsGratefuls = JSON.parse(localStorage.getItem('historicGratefuls'));
+    
+    if (lsGratefuls.length) {
+        currentGratefuls.push(...lsGratefuls);
+        gratefulList.dispatchEvent(new CustomEvent('currentGratefulsUpdated'));
+    }
+    
+    if (hsGratefuls.length) {
+        historicGratefuls.push(...hsGratefuls);
+        gratefulList.dispatchEvent(new CustomEvent('currentGratefulsUpdated'))
+    }
+}
+
 gratefulForm.addEventListener('submit', handleSubmit);
+gratefulList.addEventListener('currentGratefulsUpdated', displayGratefuls);
+gratefulList.addEventListener('currentGratefulsUpdated', mirrorToLocalStorage);
+
+restoreGratefuls();

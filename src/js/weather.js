@@ -1,20 +1,17 @@
-// old keys for open weather API
-//const API_KEY = 'b1331f0e98b8183090e37fa33c9990fd' 
-//const WEATHER_API = 'api.openweathermap.org/data/2.5/weather?'
-
 const weather = document.querySelector('.weather-container')
 
-function getWeather(coords) {
+const localCoords = []
 
+function getWeather(coords) {
     fetch(
     `https://fcc-weather-api.glitch.me/api/current?lat=${coords.lat}&lon=${coords.lon}`
     )
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         const name = data.name;
         const temperature = data.main.temp;
-        weather.innerHTML = `<p>${Math.floor(temperature)}° @ ${name}</p>`;
+        const type = data.weather[0].main;
+        weather.innerHTML = `<p>${type} in ${name}, ${Math.floor(temperature)}°</p>`;
     })
     .catch( rejected => {
         console.log(rejected);
@@ -25,7 +22,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showLocation);
     } else {
-        alert("Geolocation is not supported by this browser.");
+        alert("Geolocation is not supported by this browser, not able to show your local weather");
     }
 }
 
@@ -36,8 +33,12 @@ function showLocation(position) {
         lat,
         lon
     };
-    localStorage.setItem("coords", JSON.stringify(coords));
+    mirrorToLocalStorage(coords)
     getWeather(coords);
+}
+
+function mirrorToLocalStorage(coords) {
+    localStorage.setItem("coords", JSON.stringify(coords));
 }
 
 getLocation()

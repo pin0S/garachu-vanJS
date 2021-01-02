@@ -133,6 +133,7 @@
     "lru-cache": "^6.0.0",
     "minimatch": "^3.0.4",
     "minimist": "^1.2.5",
+    "moment": "^2.29.1",
     "ms": "^2.1.2",
     "natural-compare": "^1.4.0",
     "normalize-package-data": "^2.5.0",

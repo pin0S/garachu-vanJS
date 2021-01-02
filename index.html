@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="src/style.css" type="text/css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
     
-    <title>Document</title>
+    <title>Garachu</title>
 </head>
 <body>
     <div id="overlay">
@@ -18,7 +18,7 @@
             </div>
 
             <div class='weather-container'>
-                <p>Weather: Temperature here for locale area</p>
+                
             </div>
 
             <div class=grateful-container>
@@ -26,7 +26,7 @@
                 <h3>What are you grateful for today?</h3>
                 
                 <form class="grateful" autocomplete="off">
-                    <input type="text" name="grateful" id="grateful-input">
+                    <input type="text" name="grateful" id="grateful-input" placeholder="Today I am grateful for...">
                     <button type="submit">I'M GRATEFUL</button>
                 </form>
                 
@@ -42,9 +42,10 @@
     </div>
     
     <!-- <script src='background.js'></script> -->
-    <script src='js/garachu.js'></script>
-    <script src='js/quotes.js'></script>
-    <script src='js/weather.js'></script>
+    <script src="src/js/reset.js"></script>
+    <script src='src/js/garachu.js'></script>
+    <script src='src/js/quotes.js'></script>
+    <script src='src/js/weather.js'></script>
             
 </body>
 </html>

@@ -2,7 +2,6 @@ const currentQuote = document.querySelector('.quote')
 
 let todaysQuote = {};
 
-
 function getQuotes() {
     fetch("https://type.fit/api/quotes/")
         .then(function(response) {
@@ -27,13 +26,11 @@ function displayQuote() {
 }
 
 function mirrorToLocalStorage() {
-    console.log('mirror to ls');
     localStorage.setItem('todaysQuote', JSON.stringify(todaysQuote));
 }
 
 function restoreQuote() {
     const lsQuote = JSON.parse(localStorage.getItem('todaysQuote'));
-    console.log(lsQuote)
     
     if (lsQuote != null) {
         todaysQuote = lsQuote;

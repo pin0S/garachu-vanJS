@@ -51,8 +51,8 @@ function displayGratefuls(e) {
 }
 
 function mirrorToLocalStorage() {
-    localStorage.setItem('currentGratefuls', JSON.stringify(currentGratefuls));
     localStorage.setItem('historicGratefuls', JSON.stringify(historicGratefuls));
+    localStorage.setItem('currentGratefuls', JSON.stringify(currentGratefuls));
 }
 
 function restoreGratefuls() {
@@ -60,15 +60,20 @@ function restoreGratefuls() {
     const lsGratefuls = JSON.parse(localStorage.getItem('currentGratefuls'));
     const hsGratefuls = JSON.parse(localStorage.getItem('historicGratefuls'));
     
-    if (lsGratefuls.length) {
-        currentGratefuls.push(...lsGratefuls);
-        gratefulList.dispatchEvent(new CustomEvent('currentGratefulsUpdated'));
-    }
-    
     if (hsGratefuls.length) {
         historicGratefuls.push(...hsGratefuls);
         gratefulList.dispatchEvent(new CustomEvent('currentGratefulsUpdated'))
     }
+
+    try {
+        if (lsGratefuls.length) {
+            currentGratefuls.push(...lsGratefuls);
+            gratefulList.dispatchEvent(new CustomEvent('currentGratefulsUpdated'));
+        }
+    } catch(e) {
+        console.log(e.message)
+    }
+    
 }
 
 gratefulForm.addEventListener('submit', handleSubmit);

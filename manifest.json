@@ -1,0 +1,34 @@
+{
+	"manifest_version": 2,
+	"name": "Garachu",
+	"version": "1",
+	"description": "A Chrome extension to record what a user is grateful for",
+	"author": "Peter Lynch",
+
+	"icons": {
+        "16": "images/garachu16x16.png",
+        "32": "images/garachu32x32.png",
+        "48": "images/garachu48x48.png",
+        "128": "images/garachu128x128.png"
+    },
+
+	"browser_action": {
+		"default_popup": "index.html",
+		"default_icon": {
+			"16": "images/garachu16x16.png",
+			"32": "images/garachu32x32.png",
+			"48": "images/garachu48x48.png",
+			"128": "images/garachu128x128.png"},
+		"default_title": "Garachu"
+	},
+
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+
+	"permissions": [
+		"activeTab", 
+		"storage",
+		"geolocation"
+	]
+}

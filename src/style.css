@@ -48,6 +48,13 @@ body {
     grid-area: weather;
 }
 
+.weather-container p {
+    font-style: italic;
+    font-size: 16px;
+    top: 25px;
+    right: 25px;
+}
+
 .settings-container {
     grid-area: setting;
 }
@@ -57,8 +64,20 @@ body {
     text-align: center;
 }
 
+.grateful-container h1 {
+    font-size: 40px;
+}
+
+.grateful-container h3 {
+    font-size: 32px;
+}
+
 .grateful {
     padding-top: 10px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.8)
 }
 
 .grateful button {
@@ -101,10 +120,9 @@ body {
 
 
 .grateful-item {
-    padding-top: 10px;
-    padding-right: 10px;
-    text-align: left;
-    font-size: 18px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
     list-style: none;
 }
 

@@ -13,28 +13,35 @@
     <div id="overlay">
         <div class='grid-container'>
             
-            <div class="settings-container">
+            <form class="name-display">
+                <p>Welcome to Garachu we are <strong><u>grateful</u></strong> you decided to use us.
+                    <br><br>Please enter your name here 
+                    <input type="text" name="username" id="username" placeholder="your name" value="your name"></input>
+                    before we continue</p>
+            </form>
+
+            <div class="settings-container hide">
                 <p>Placeholder for wordcloud link</p>
             </div>
 
-            <div class='weather-container'>
+            <div class='weather-container hide'>
                 
             </div>
 
-            <div class=grateful-container>
-                <h1>Greetings from Garachu</h1>
+            <div class="grateful-container hide">
+                <h1>Greetings <span class="name-change"></span> from Garachu</h1>
                 <h3>What are you grateful for today?</h3>
                 
                 <form class="grateful" autocomplete="off">
                     <input type="text" name="grateful" id="grateful-input" placeholder="Today I am grateful for...">
-                    <button type="submit">I'M GRATEFUL</button>
+                    <button type="submit" class="hide">I'M GRATEFUL</button>
                 </form>
                 
                 <ul class="grateful-list"></ul>
                 
             </div>  
             
-            <div class="quotes">
+            <div class="quotes hide">
                 <p class="quote"></p>
             </div>
             
@@ -43,10 +50,11 @@
     
     <!-- <script src='background.js'></script> -->
     <script src="src/js/reset.js"></script>
+    <script src="src/js/username.js"></script>
     <script src='src/js/garachu.js'></script>
     <script src='src/js/quotes.js'></script>
     <script src='src/js/weather.js'></script>
-    
+
             
 </body>
 </html>

@@ -6,7 +6,7 @@ const historicGratefuls = []
 
 function handleSubmit(e) {
     e.preventDefault();
-    console.log('submitted!');
+    
     const grateful = e.currentTarget.grateful.value;
     
     //if it is empty don't submit it
@@ -70,8 +70,8 @@ function restoreGratefuls() {
             currentGratefuls.push(...lsGratefuls);
             gratefulList.dispatchEvent(new CustomEvent('currentGratefulsUpdated'));
         }
-    } catch(e) {
-        console.log(e.message)
+    } catch(error) {
+        console.log(error.message)
     }
     
 }

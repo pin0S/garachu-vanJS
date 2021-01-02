@@ -135,3 +135,22 @@ input::placeholder {
     font-size: 20px;
     font-weight: 800;
 }
+
+/*username module*/
+
+.name-display {
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    background: #f2f4f8;
+    border-radius: 5px;
+    min-width: 24px;
+    font-size: 26px;
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+
+    grid-area: gratitude;
+}
+
+.hide {
+    display: none !important;
+}

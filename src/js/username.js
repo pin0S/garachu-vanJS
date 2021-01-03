@@ -35,6 +35,19 @@ function hideNameModule() {
     nameForm.classList.add("hide");
 }
 
+function showInstuctions() {
+    let instructions = document.querySelector('.instructions')
+    instructions.classList.remove('hide')
+
+    document.addEventListener('keyup', event => {
+        if (event.code === 'Space') {
+            instructions.classList.add('hide')
+            nameChange.dispatchEvent(new CustomEvent('instuctionsShown'))
+        }
+    })
+
+}
+
 function clearHiddenElements() {
     document.querySelector('.settings-container').classList.remove('hide');
     document.querySelector('.weather-container').classList.remove('hide');
@@ -54,6 +67,7 @@ function restoreName() {
 
 nameForm.addEventListener('submit', handleSubmit);
 nameChange.addEventListener('nameEntered', displayName);
-nameChange.addEventListener('nameEntered', clearHiddenElements);
+nameChange.addEventListener('nameEntered', showInstuctions);
+nameChange.addEventListener('instuctionsShown', clearHiddenElements);
 
 restoreName()

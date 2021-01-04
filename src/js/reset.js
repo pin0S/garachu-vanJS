@@ -19,9 +19,11 @@ function updateTomorrowLS(tomorrow) {
 
 try {
     if (!JSON.parse(localStorage.getItem('tomorrow'))) {
+        console.log('tommorrow does not exist')
         localStorage.setItem("tomorrow", JSON.stringify(setDates()));
         clearDailyData(tomorrow)
     } else {
+        console.log('tommorrow exists')
         clearDailyData(JSON.parse(localStorage.getItem(setDates())))
     } 
 } catch(e) {

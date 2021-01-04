@@ -39,14 +39,21 @@ function showInstuctions() {
     let instructions = document.querySelector('.instructions')
     instructions.classList.remove('hide')
 
-    document.addEventListener('keyup', event => {
-        if (event.code === 'Space') {
-            instructions.classList.add('hide')
-            nameChange.dispatchEvent(new CustomEvent('instuctionsShown'))
-        }
-    })
-
+    if (localStorage.getItem('instructions')) { 
+        instructions.classList.add('hide')
+        nameChange.dispatchEvent(new CustomEvent('instructionsShown'))
+    } else {
+        document.addEventListener('keyup', event => {
+            if (event.code === 'Space') {
+                instructions.classList.add('hide')
+                nameChange.dispatchEvent(new CustomEvent('instructionsShown'))
+            }
+            localStorage.setItem('instructions', true)
+        })
+    }
 }
+
+
 
 function clearHiddenElements() {
     document.querySelector('.settings-container').classList.remove('hide');
@@ -62,12 +69,13 @@ function restoreName() {
         username = usernameLS;
         nameChange.dispatchEvent(new CustomEvent('nameEntered'))
         hideNameModule()
+
     }
 }
 
 nameForm.addEventListener('submit', handleSubmit);
 nameChange.addEventListener('nameEntered', displayName);
 nameChange.addEventListener('nameEntered', showInstuctions);
-nameChange.addEventListener('instuctionsShown', clearHiddenElements);
+nameChange.addEventListener('instructionsShown', clearHiddenElements);
 
 restoreName()

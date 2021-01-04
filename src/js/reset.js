@@ -6,33 +6,35 @@ function clearDailyData(tomorrow) {
         window.localStorage.removeItem('currentGratefuls');
         window.localStorage.removeItem('todaysQuote');
 
-        today = new Date();
-        let tomorrowLS = new Date();
-        tomorrowLS.setDate(today.getDate() + 1);
-
-        addTomorrowToLS(tomorrowLS)
-        console.log('data refreshed')
+        updateTomorrowLS(setDates())
+        
+        // reload the page so changes take effect
+        location.reload();
     }
 }
 
-function addTomorrowToLS(tomorrow) {
+function updateTomorrowLS(tomorrow) {
     localStorage.setItem("tomorrow", JSON.stringify(tomorrow));
 }
 
 try {
     if (!JSON.parse(localStorage.getItem('tomorrow'))) {
-        let today = new Date();
-        let tomorrow = new Date();
-        tomorrow.setDate(today.getDate() + 1);
-        localStorage.setItem("tomorrow", JSON.stringify(tomorrow));
+        localStorage.setItem("tomorrow", JSON.stringify(setDates()));
         clearDailyData(tomorrow)
     } else {
-        clearDailyData(JSON.parse(localStorage.getItem('tomorrow')))
+        clearDailyData(JSON.parse(localStorage.getItem(setDates())))
     } 
 } catch(e) {
     console.log(e.message)
 }
 
+function setDates() {
+    let today = new Date();
+    let tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+
+    return tomorrow
+}
 
 
 

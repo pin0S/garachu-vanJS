@@ -2,7 +2,10 @@ function clearDailyData(tomorrow) {
 
     let now = new Date()
 
-    if (now.getDay == tomorrow.getDay()) {
+    tomorrow = new Date(tomorrow)
+
+    if (now.getDay() >= tomorrow.getDay()) {
+    
         window.localStorage.removeItem('currentGratefuls');
         window.localStorage.removeItem('todaysQuote');
 
@@ -14,20 +17,7 @@ function clearDailyData(tomorrow) {
 }
 
 function updateTomorrowLS(tomorrow) {
-    localStorage.setItem("tomorrow", JSON.stringify(tomorrow));
-}
-
-try {
-    if (!JSON.parse(localStorage.getItem('tomorrow'))) {
-        console.log('tommorrow does not exist')
-        localStorage.setItem("tomorrow", JSON.stringify(setDates()));
-        clearDailyData(tomorrow)
-    } else {
-        console.log('tommorrow exists')
-        clearDailyData(JSON.parse(localStorage.getItem(setDates())))
-    } 
-} catch(e) {
-    console.log(e.message)
+    localStorage.setItem("tomorrow", tomorrow);
 }
 
 function setDates() {
@@ -35,8 +25,24 @@ function setDates() {
     let tomorrow = new Date();
     tomorrow.setDate(today.getDate() + 1);
 
+    console.log(`Set Date: ${tomorrow.getDay()}`)
+
     return tomorrow
 }
+
+try {
+    if (!(localStorage.getItem('tomorrow'))) {
+        console.log('tommorrow does not exist')
+        localStorage.setItem("tomorrow", setDates());
+        clearDailyData(localStorage.getItem("tomorrow"));
+    } else {
+        console.log('tommorrow exists')
+        clearDailyData(localStorage.getItem("tomorrow"));
+    } 
+} catch(e) {
+    console.log(e.message)
+}
+
 
 
 

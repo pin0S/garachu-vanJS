@@ -11,8 +11,7 @@ const backgrounds = [
 const body = document.querySelector("body");
 
 function paintImage() {
-  // let background_day = new Date().getDay()
-  let background_day = 6;
+  let background_day = new Date().getDay()
 
   background = `url(${backgrounds[background_day].location})`;
   body.style.backgroundImage = background;   

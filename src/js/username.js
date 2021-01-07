@@ -1,7 +1,8 @@
 //placeholder for username
-const nameForm = document.querySelector('.name-display')
-const usernameInput = document.querySelector('#username')
-const nameChange = document.querySelector('.name-change')
+const nameForm = document.querySelector('.name-display');
+const usernameInput = document.querySelector('#username');
+const nameChange = document.querySelector('.name-change');
+const greetingName = document.querySelector('.greeting-name');
 
 let username = "";
 
@@ -20,7 +21,7 @@ function handleSubmit(e) {
         hideNameModule()
     }
 
-    localStorage.setItem("username", JSON.stringify(username));
+    localStorage.setItem("username", username);
     nameChange.dispatchEvent(new CustomEvent('nameEntered'));    
 
     
@@ -29,6 +30,7 @@ function handleSubmit(e) {
 function displayName(e) {
     console.log('Name is displayed')
     nameChange.textContent = username; 
+    greetingName.textContent = username;
 }
 
 function hideNameModule() {
@@ -63,9 +65,10 @@ function clearHiddenElements() {
 }
 
 function restoreName() {
-    const usernameLS = JSON.parse(localStorage.getItem('username'));
+    const usernameLS = localStorage.getItem('username');
 
-    if (usernameLS.length) {
+    if (usernameLS) {
+        console.log('username is in')
         username = usernameLS;
         nameChange.dispatchEvent(new CustomEvent('nameEntered'))
         hideNameModule()

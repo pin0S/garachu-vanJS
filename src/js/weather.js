@@ -8,6 +8,7 @@ function getWeather(coords) {
     )
     .then(response => response.json())
     .then(data => {
+        console.log(data)
         const name = data.name;
         const temperature = data.main.temp;
         const type = data.weather[0].main;

@@ -4,7 +4,6 @@
 }
 
 body {
-    background-image: url('/images/backgrounds/martin-olsson-Qbe9Ja1jUg0-unsplash.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -13,6 +12,7 @@ body {
     /*font*/
     color: white;
     font-family: 'Roboto', sans-serif;
+    text-shadow: black 2px 2px 4px;
 
     /*background image hold until setup bootstrap
     height: 50vh;
@@ -130,7 +130,7 @@ input::placeholder {
 }
 
 .quote {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 800;
 }
 

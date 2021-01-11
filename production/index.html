@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/style.css" type="text/css" rel="stylesheet" 
+    integrity="sha384-+hQE0YYzAivlyypZPT/0RawVrcUiB2B2muCU+vubhW5ZC+/3MoPEPXfUnLHuE9y6" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    
+    <title>Garachu</title>
+</head>
+<body>
+    <div id="overlay">
+        <div class='grid-container'>
+            
+            <form class="name-display">
+                <p id="welcome">Welcome to Garachu we are <strong><u>grateful</u></strong> you decided to use us.
+                    <br><br>Please enter 
+                    <input type="text" name="username" id="username" placeholder="your name"></input>                    
+                    here before we continue.</p>
+            </form>
+
+            <div class="instructions hide">
+                <p>Howdy <span class="name-change"></span> and thanks again for using Garachu 🙏.</p><br>
+                <p>Gratefulness is a great daily practice and we want to make it as easy as possible.</p><br>
+                <p>To practice gratefulness each day enter up to <strong>three</strong> 
+                    things you are grateful for, the next day your list will be refreshed 
+                    and ready for you to enter three more.</p><br>
+                <p>At the end of the month you will be able to see all the things you were grateful for.</p><br>
+                <p>To start practicing gratefulness with Garachu hit the <strong><u>spacebar</u></strong></p><br>
+            </div>
+
+            <div class="settings-container hide">
+                <p>Placeholder for wordcloud link</p>
+            </div>
+
+            <div class='weather-container hide'>
+                
+            </div>
+
+            <div class="grateful-container hide">
+                <h1>Greetings <span class="greeting-name"></span> from Garachu</h1>
+                <h3>What are you grateful for today?</h3>
+                
+                <form class="grateful" autocomplete="off">
+                    <input type="text" name="grateful" id="grateful-input" placeholder="Today I am grateful for...">
+                    <button type="submit" class="hide">I'M GRATEFUL</button>
+                </form>
+                
+                <ul class="grateful-list"></ul>
+                
+            </div>  
+            
+            <div class="quotes hide">
+                <p class="quote"></p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src='src/js/background.js' integrity="sha384-nCu8rCpx/xM2TkEBukk+dpd9IGeCekULU36cPoStSaEH8QvAkfbPY9QJKxHHbe+d"
+    crossorigin="anonymous"></script>
+    <script src="src/js/reset.js" integrity="sha384-chSgd6HHlLn7htQKALadaadrNvmXoyR3eb/6S+K65ppT3Z5xlzy4JswCq6pIYEj5"
+    crossorigin="anonymous"></script> 
+    <script src="src/js/username.js" integrity="sha384-njReCekSGL1iI/gem9Lg6T+CYRXFgd9iqv7QUdughpUclLt/kPj0fBkufv59fVwq"
+    crossorigin="anonymous"></script>
+    <script src='src/js/garachu.js' integrity="sha384-IkIh3wBLUwUIdBNiNxHX/y/XxkO/H2vIwfTt68kTE77hKBzWBMLywet3hrYsUaKc"
+    crossorigin="anonymous"></script>
+    <script src='src/js/quotes.js' integrity="sha384-d/eAsRu7p917bsCt/xkZwccoySbqj0s0Wv+tZWWACjYB7vfzkRQ69XbbIkB0cOex"
+    crossorigin="anonymous"></script>
+    <script src='src/js/weather.js' integrity="sha384-Q1/2TTsLNpwfOZl81R9bVoNqL52g9P+HwlvlWkx+mGujUcFNjQLq7Od/G7FV2Y9T"
+    crossorigin="anonymous"></script>
+
+            
+</body>
+</html>

@@ -9,7 +9,6 @@ function getWeather(coords) {
     )
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         const name = data.name;
         const temperature = data.main.temp;
         const type = data.weather[0].main;
@@ -43,4 +42,5 @@ function mirrorToLocalStorage(coords) {
     localStorage.setItem("coords", JSON.stringify(coords));
 }
 
+console.log('it works')
 getLocation()

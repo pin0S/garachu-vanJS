@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -145,7 +147,7 @@ input::placeholder {
     color: #000;
     text-decoration: none;
     text-align: center;
-    background: #f2f4f8;
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     min-width: 24px;
     font-size: 26px;
@@ -182,7 +184,7 @@ input::placeholder {
     color: #000;
     text-decoration: none;
     text-align: center;
-    background: #f2f4f8;
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 5px;
     min-width: 24px;
     font-size: 26px;
@@ -200,4 +202,11 @@ input::placeholder {
 
 .hide {
     display: none !important;
+}
+
+#wordcloud {
+    color: white;
+    text-decoration: none;
+    text-shadow: black 2px 2px 4px;
+    font-size: 14px;
 }

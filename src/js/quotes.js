@@ -21,7 +21,7 @@ function randomQuote(data) {
 }
 
 function displayQuote() {
-    let html = `"${todaysQuote.text}" - ${(todaysQuote.author == "null" ? '"unknown"' : todaysQuote.author)}`
+    let html = `"${todaysQuote.text}" - ${(todaysQuote.author == null ? '"unknown"' : todaysQuote.author)}`
     currentQuote.innerHTML = html
 }
 

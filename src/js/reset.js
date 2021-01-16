@@ -4,7 +4,9 @@ function clearDailyData(tomorrow) {
 
     tomorrow = new Date(tomorrow)
 
-    if (now.getDay() >= tomorrow.getDay()) {
+    console.log(typeof tomorrow.getDay())
+
+    if (now.getDay() >= tomorrow.getDay() || (now.getDay() == 0 && tomorrow.getDay() == 0 )) {
     
         window.localStorage.removeItem('currentGratefuls');
         window.localStorage.removeItem('todaysQuote');
